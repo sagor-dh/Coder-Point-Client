@@ -23,7 +23,13 @@ function Header() {
                                 <NavLink to='/'>Home</NavLink>
                             </Nav.Link>
                             <Nav.Link>
-                                <NavLink to='/cources'>Cources</NavLink>
+                                <NavLink to='/courses'>Courses</NavLink>
+                            </Nav.Link>
+                            <Nav.Link>
+                                <NavLink to='/fqa'>FQA</NavLink>
+                            </Nav.Link>
+                            <Nav.Link>
+                                <NavLink to='/block'>Block</NavLink>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

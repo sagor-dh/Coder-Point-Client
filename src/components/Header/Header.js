@@ -31,6 +31,9 @@ function Header() {
                             <Nav.Link>
                                 <NavLink to='/block'>Block</NavLink>
                             </Nav.Link>
+                            <Nav.Link>
+                                <NavLink to='/login'>Login</NavLink>
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

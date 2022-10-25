@@ -1,0 +1,17 @@
+.banner {
+    min-height: 100vh;
+    background: rgb(20, 16, 74);
+    background: linear-gradient(90deg, rgba(20, 16, 74, 1) 0%, rgba(9, 9, 149, 0.8435749299719888) 43%, rgba(3, 144, 172, 1) 99%);
+}
+.banner h3{
+    font-size: 45px;
+    font-weight: bold;
+}
+.banner p{
+    margin-top: 30px;
+}
+.banner_img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}

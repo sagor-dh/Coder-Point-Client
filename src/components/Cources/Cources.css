@@ -1,0 +1,28 @@
+.card_img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+
+.card_container {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+}
+
+.front_side {
+    transform: rotateX(0deg);
+    transition: all 0.5s;
+}
+
+.back_side {
+    transform: rotateX(90deg);
+    transition: all 0.5s;
+}
+
+.card_container:hover .back_side {
+    transform: rotateX(0deg);
+}
+
+.card_container:hover .front_side {
+    transform: rotateX(-90deg);
+}

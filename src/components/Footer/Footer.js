@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Footer() {
     return (
         <div>
-            
-            <div className="container my-5">
+            <div className=" my-5">
                 
-                <footer className="text-center text-white" style="background-color: #3f51b5">
+                <footer className="text-center text-white" style={{backgroundColor: "#3f51b5"}}>
                     
                     <div className="container">
                         
@@ -16,7 +16,7 @@ function Footer() {
                                 
                                 <div className="col-md-2">
                                     <h6 className="text-uppercase font-weight-bold">
-                                        <a href="#!" className="text-white">About us</a>
+                                        <Link to='/' className="text-white">About us</Link>
                                     </h6>
                                 </div>
                                 
@@ -24,7 +24,7 @@ function Footer() {
                                 
                                 <div className="col-md-2">
                                     <h6 className="text-uppercase font-weight-bold">
-                                        <a href="#!" className="text-white">Products</a>
+                                        <Link to='/' className="text-white">Products</Link>
                                     </h6>
                                 </div>
                                 
@@ -32,7 +32,7 @@ function Footer() {
                                 
                                 <div className="col-md-2">
                                     <h6 className="text-uppercase font-weight-bold">
-                                        <a href="#!" className="text-white">Awards</a>
+                                        <Link to='/' className="text-white">Awards</Link>
                                     </h6>
                                 </div>
                                 
@@ -40,7 +40,7 @@ function Footer() {
                                 
                                 <div className="col-md-2">
                                     <h6 className="text-uppercase font-weight-bold">
-                                        <a href="#!" className="text-white">Help</a>
+                                        <Link to='/' className="text-white">Help</Link>
                                     </h6>
                                 </div>
                                 
@@ -48,7 +48,7 @@ function Footer() {
                                 
                                 <div className="col-md-2">
                                     <h6 className="text-uppercase font-weight-bold">
-                                        <a href="#!" className="text-white">Contact</a>
+                                        <Link to='/' className="text-white">Contact</Link>
                                     </h6>
                                 </div>
                                 
@@ -76,38 +76,34 @@ function Footer() {
 
                         
                         <section className="text-center mb-5">
-                            <a href="" className="text-white me-4">
+                            <Link href="" className="text-white me-4">
                                 <i className="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="" className="text-white me-4">
+                            </Link>
+                            <Link href="" className="text-white me-4">
                                 <i className="fab fa-twitter"></i>
-                            </a>
-                            <a href="" className="text-white me-4">
+                            </Link>
+                            <Link href="" className="text-white me-4">
                                 <i className="fab fa-google"></i>
-                            </a>
-                            <a href="" className="text-white me-4">
+                            </Link>
+                            <Link href="" className="text-white me-4">
                                 <i className="fab fa-instagram"></i>
-                            </a>
-                            <a href="" className="text-white me-4">
+                            </Link>
+                            <Link href="" className="text-white me-4">
                                 <i className="fab fa-linkedin"></i>
-                            </a>
-                            <a href="" className="text-white me-4">
+                            </Link>
+                            <Link href="" className="text-white me-4">
                                 <i className="fab fa-github"></i>
-                            </a>
+                            </Link>
                         </section>
                         
                     </div>
                     
 
                     
-                    <div
-                        className="text-center p-3"
-                        style="background-color: rgba(0, 0, 0, 0.2)"
-                    >
+                    <div className="text-center p-3" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
                         © 2020 Copyright:
-                        <a className="text-white" href="https://mdbootstrap.com/"
-                        >MDBootstrap.com</a
-                        >
+                        <Link className="text-white" href="https://mdbootstrap.com/"
+                        >MDBootstrap.com</Link>
                     </div>
                    
                 </footer>

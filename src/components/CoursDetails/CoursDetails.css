@@ -1,0 +1,11 @@
+.card_details{
+    width:700px;
+    margin: auto;
+    padding: 15px;
+}
+.card_details_img{
+    width: 530px;
+    height: auto;
+    object-fit: cover;
+    margin: auto;
+}

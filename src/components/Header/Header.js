@@ -19,21 +19,15 @@ function Header() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link>
-                                <NavLink to='/'>Home</NavLink>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <NavLink to='/courses'>Courses</NavLink>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <NavLink to='/fqa'>FQA</NavLink>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <NavLink to='/block'>Block</NavLink>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <NavLink to='/login'>Login</NavLink>
-                            </Nav.Link>
+                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary me-4': 'text-decoration-none text-black me-4'} to='/'>Home</NavLink>
+
+                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary me-4': 'text-decoration-none text-black me-4'} to='/courses'>Courses</NavLink>
+
+                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary me-4': 'text-decoration-none text-black me-4'} to='/fqa'>FQA</NavLink>
+
+                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary me-4': 'text-decoration-none text-black me-4'} to='/block'>Block</NavLink>
+
+                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary': 'text-decoration-none text-black'} to='/login'>Login</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

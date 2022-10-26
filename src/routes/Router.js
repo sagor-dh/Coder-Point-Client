@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import CoursDetails from "../components/CoursDetails/CoursDetails";
 import Courses from "../components/Courses/Courses";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 // import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
@@ -11,6 +12,7 @@ export const router = createBrowserRouter([
     {
         path:'/',
         element:<Main/>,
+        errorElement:<ErrorPage/>,
         children:[
             {
                 path:'/',

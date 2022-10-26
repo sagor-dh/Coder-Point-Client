@@ -1,22 +1,42 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
+import './CoursDetails.css'
 function CoursDetails() {
     const cours = useLoaderData()
-    console.log(cours)
+    const printRef = useRef()
+
+    const handleDownloadPdf = async () => {
+        const element = printRef.current;
+        const canvas = await html2canvas(element);
+        const data = canvas.toDataURL('image/png');
+
+        const pdf = new jsPDF();
+        const imgProperties = pdf.getImageProperties(data);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight =
+            (imgProperties.height * pdfWidth) / imgProperties.width;
+
+        pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save('print.pdf');
+    };
+
     return (
-        <div>
-            <Card>
-                <Card.Img variant="top" src={cours.img} />
+        <div className='container'>
+            <Card className='card_details'>
+                <Card.Img className='card_details_img' variant="top" src={cours.img} />
                 <Card.Body>
-                    <Card.Title>{cours.name}</Card.Title>
-                    <Card.Text>{cours.details}</Card.Text>
-                    <Card.Text>{cours.price}</Card.Text>
-                    <Card.Text>{cours.duration}</Card.Text>
-                    <Button variant="primary">Add To Cart</Button>
-                    <Button variant="primary">Downlode PDF</Button>
+                    <div ref={printRef}>
+                        <Card.Title className="fs-3 fw-blod">{cours.name}</Card.Title>
+                        <Card.Text>{cours.detalis}</Card.Text>
+                        <Card.Text className='mb-0 mt-4'><b>Duration:</b> <small>{cours.duration}</small></Card.Text>
+                        <Card.Text><b>Price:</b> <small>${cours.price}</small></Card.Text>
+                    </div>
+                    <Button variant="primary" className='mt-4'>Add To Cart</Button>
+                    <Button variant="primary" className='mt-4 ms-4' onClick={handleDownloadPdf}>Downlode PDF</Button>
                 </Card.Body>
             </Card>
         </div>

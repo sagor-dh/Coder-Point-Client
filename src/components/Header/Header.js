@@ -1,10 +1,17 @@
 import React from 'react'
+import { useContext } from 'react';
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { FaUser } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import './Header.css'
+
 function Header() {
+    const { user, userLogOut } = useContext(AuthContext)
+    console.log(user)
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -18,16 +25,22 @@ function Header() {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto">
-                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary me-4': 'text-decoration-none text-black me-4'} to='/'>Home</NavLink>
+                        <Nav className="ms-auto d-flex align-items-center">
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-primary me-4' : 'text-decoration-none text-black me-4'} to='/'>Home</NavLink>
 
-                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary me-4': 'text-decoration-none text-black me-4'} to='/courses'>Courses</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-primary me-4' : 'text-decoration-none text-black me-4'} to='/courses'>Courses</NavLink>
 
-                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary me-4': 'text-decoration-none text-black me-4'} to='/fqa'>FQA</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-primary me-4' : 'text-decoration-none text-black me-4'} to='/fqa'>FQA</NavLink>
 
-                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary me-4': 'text-decoration-none text-black me-4'} to='/block'>Block</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-primary me-4' : 'text-decoration-none text-black me-4'} to='/block'>Block</NavLink>
+                            {
+                                user && user?.uid ? <>
+                                    <FaUser title={user.displayName}/>
+                                    <Button onClick={()=> userLogOut()}>Log Out</Button>
 
-                            <NavLink className={({isActive}) => isActive ? 'text-decoration-none text-primary': 'text-decoration-none text-black'} to='/login'>Login</NavLink>
+                                </> : <Button> <NavLink className='text-white text-decoration-none' to='/login'>Login</NavLink></Button>
+
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

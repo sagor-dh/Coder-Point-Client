@@ -1,14 +1,53 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, FormText } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import './Login.css'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 function Login() {
+    const {userLogin, singInGoogle, singInGithub} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const url = location.state?.from?.pathname || '/'
+
+    const handleForm = (event) => {
+        event.preventDefault()
+        const form = event.target;
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        userLogin(email, password)
+            .then(() => { 
+                navigate(url, {replace:true})
+                form.reset()
+             })
+            .catch((error) => { console.log(error.message) })
+    }
+
+    const handleGoogleLogin = () =>{
+        singInGoogle()
+        .then(()=> {
+            navigate(url, {replace:true})
+            console.log('success')
+        })
+        .catch(()=> {})
+    }
+
+    const handleGithubLogin = () =>{
+        singInGithub()
+        .then(()=> {
+            navigate(url, {replace:true})
+        })
+        .catch(()=> {})
+    }
+
     return (
         <div className='form'>
-            <Form >
+            <Form onSubmit={handleForm}>
                 <h1 className='mb-3'>Login</h1>
                 <Form.Group className="mb-3" controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>
@@ -20,11 +59,11 @@ function Login() {
                 </Form.Group>
                 <FormText>If you have no account? <Link to='/registration'>Registration</Link> </FormText>
                 <br />
-                <Button variant="primary" type="submit">Login</Button>
+                <Button className='mt-3' variant="primary" type="submit">Login</Button>
             </Form>
             <div>
-                <Button className='w-100 mt-5'><FaGoogle/> Login with Google </Button>
-                <Button className='w-100 mt-3'><FaGithub/> Login with Github </Button>
+                <Button onClick={handleGoogleLogin} className='w-100 mt-5'><FaGoogle /> Login with Google </Button>
+                <Button onClick={handleGithubLogin} className='w-100 mt-3'><FaGithub /> Login with Github </Button>
             </div>
         </div>
     )

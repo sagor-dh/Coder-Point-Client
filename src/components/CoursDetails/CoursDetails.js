@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { NavLink, useLoaderData } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import html2canvas from 'html2canvas';
@@ -35,7 +35,7 @@ function CoursDetails() {
                         <Card.Text className='mb-0 mt-4'><b>Duration:</b> <small>{cours.duration}</small></Card.Text>
                         <Card.Text><b>Price:</b> <small>${cours.price}</small></Card.Text>
                     </div>
-                    <Button variant="primary" className='mt-4'>Add To Cart</Button>
+                    <Button variant="primary" className='mt-4'> <NavLink to='/premearAccess'>Premear</NavLink> </Button>
                     <Button variant="primary" className='mt-4 ms-4' onClick={handleDownloadPdf}>Downlode PDF</Button>
                 </Card.Body>
             </Card>

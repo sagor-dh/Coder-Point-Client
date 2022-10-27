@@ -5,9 +5,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import './Login.css'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { useState } from 'react';
 
 function Login() {
     const {userLogin, singInGoogle, singInGithub} = useContext(AuthContext)
+    const [error, setError] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -25,14 +27,13 @@ function Login() {
                 navigate(url, {replace:true})
                 form.reset()
              })
-            .catch((error) => { console.log(error.message) })
+            .catch((error) => {setError(error.message) })
     }
 
     const handleGoogleLogin = () =>{
         singInGoogle()
         .then(()=> {
             navigate(url, {replace:true})
-            console.log('success')
         })
         .catch(()=> {})
     }
@@ -49,6 +50,7 @@ function Login() {
         <div className='form'>
             <Form onSubmit={handleForm}>
                 <h1 className='mb-3'>Login</h1>
+                <i className='text-danger'>{error}</i>
                 <Form.Group className="mb-3" controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name='email' placeholder="Enter email" />

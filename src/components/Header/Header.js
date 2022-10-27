@@ -11,12 +11,12 @@ import './Header.css'
 
 function Header() {
     const { user, userLogOut } = useContext(AuthContext)
-    const [logoutToggle, setLogoutToggle] = useState(false)
+    const [logoutToggle, setLogoutToggle] = useState(true)
 
     const handleLogoutToggle = () => {
         setLogoutToggle((currentValue) => !currentValue)
     }
-    console.log(user)
+
     return (
         <div>
             <Navbar expand="lg" className='navbar py-3'>
@@ -42,7 +42,7 @@ function Header() {
                                 user && user?.uid ? <>
                                     <img onClick={handleLogoutToggle} title={user.displayName} src={user.photoURL ? user.photoURL : `https://www.kindpng.com/picc/m/146-1468390_transparent-shadow-person-png-missing-profile-picture-icon.png`} alt={user.displayName} className="user_photo" />
 
-                                    <div className={`position-absolute end-0 top-100 p-2 dropdown_info ${logoutToggle ? 'd-block' : 'd-none'}`}>
+                                    <div className={`position-absolute end-0 top-100 p-2 dropdown_info  ${logoutToggle ? 'd-none' : 'd-block'}`}>
                                         <h5>Setting</h5>
                                         <hr />
                                         <h5 onClick={() => userLogOut()} className='logout_Btn'>Log Out</h5>

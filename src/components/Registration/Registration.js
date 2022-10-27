@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, FormText } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -6,7 +7,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 function Registration() {
-    const { userRegistration, userUpdateProfile, user } = useContext(AuthContext)
+    const { userRegistration, userUpdateProfile } = useContext(AuthContext)
+    const [error, setError] = useState('')
 
     const handleForm = (event) => {
         event.preventDefault()
@@ -24,8 +26,7 @@ function Registration() {
                     .catch(() => { })
 
             })
-            .catch((error) => { console.log(error.message) })
-        console.log(user)
+            .catch((error) => { setError(error.message) })
         form.reset()
     }
 
@@ -33,6 +34,7 @@ function Registration() {
         <div className='form'>
             <Form onSubmit={handleForm}>
                 <h1 className='mb-3'>Registration</h1>
+                <i className='text-danger'>{error}</i>
                 <Form.Group className="mb-3" controlId="formGroupName">
                     <Form.Label>Full Name</Form.Label>
                     <Form.Control type="text" name='name' placeholder="Enter Name" />

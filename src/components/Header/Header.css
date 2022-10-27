@@ -18,6 +18,7 @@
     min-width: 200px;
     min-height: 80px;
     background-color: #e6e6e6 ;
+    z-index: 100;
 }
 .logout_Btn{
     cursor: pointer;

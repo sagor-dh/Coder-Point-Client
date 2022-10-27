@@ -1,11 +1,19 @@
 .card_details{
-    width:700px;
+    width:600px;
     margin: auto;
     padding: 15px;
+ 
+}
+.card_bg{
+    background-color: #e6e6e6 !important;
 }
 .card_details_img{
-    width: 530px;
+    width: 400px;
+    max-height: 400px;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     margin: auto;
+}
+.premearBtn:hover{
+    background-color: transparent !important;
 }

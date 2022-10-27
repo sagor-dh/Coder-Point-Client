@@ -40,7 +40,7 @@ function CoursDetails() {
                             <Card.Text className='mb-0 mt-4'><b>Duration:</b> <small>{cours.duration}</small></Card.Text>
                             <Card.Text><b>Price:</b> <small>${cours.price}</small></Card.Text>
                         </div>
-                        <Button variant="outline-dark" className='mt-4 premearBtn'> <NavLink className='text-black text-decoration-none ' to='/premearAccess'>Get premium access</NavLink> </Button>
+                        <Button variant="outline-dark" className='mt-4 premearBtn'> <NavLink className='text-black text-decoration-none ' to={`/premearAccess/${cours.id}`}>Get premium access</NavLink> </Button>
                     </Card.Body>
                 </div>
             </Card>

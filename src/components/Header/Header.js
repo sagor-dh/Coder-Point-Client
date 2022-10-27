@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react'
 import { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
@@ -7,16 +6,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { FaMoon, FaSun } from "react-icons/fa";
+
 import './Header.css'
 
 function Header() {
     const { user, userLogOut } = useContext(AuthContext)
-    const [logoutToggle, setLogoutToggle] = useState(true)
-
-    const handleLogoutToggle = () => {
-        setLogoutToggle((currentValue) => !currentValue)
+    const [mood, setMood] = useState(false)
+    const handleMood = () =>{
+        setMood((currentMood)=> !currentMood)
     }
-
     return (
         <div>
             <Navbar expand="lg" className='navbar py-3'>
@@ -30,27 +29,26 @@ function Header() {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto d-flex align-items-center position-relative">
-                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/'>Home</NavLink>
+                        <Nav className='ms-auto d-flex align-items-center'>
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/home'>Home</NavLink>
 
                             <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/courses'>Courses</NavLink>
 
                             <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/fqa'>FQA</NavLink>
 
                             <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/block'>Block</NavLink>
+
                             {
                                 user && user?.uid ? <>
-                                    <img onClick={handleLogoutToggle} title={user.displayName} src={user.photoURL ? user.photoURL : `https://www.kindpng.com/picc/m/146-1468390_transparent-shadow-person-png-missing-profile-picture-icon.png`} alt={user.displayName} className="user_photo" />
+                                    <img title={user.displayName} src={user.photoURL ? user.photoURL : `https://www.kindpng.com/picc/m/146-1468390_transparent-shadow-person-png-missing-profile-picture-icon.png`} alt={user.displayName} className="user_photo" />
 
-                                    <div className={`position-absolute end-0 top-100 p-2 dropdown_info  ${logoutToggle ? 'd-none' : 'd-block'}`}>
-                                        <h5>Setting</h5>
-                                        <hr />
-                                        <h5 onClick={() => userLogOut()} className='logout_Btn'>Log Out</h5>
-                                    </div>
-
+                                    <Button variant='info' onClick={() => userLogOut()} className='logout_Btn text-white'>Log Out</Button>
                                 </> : <Button> <NavLink className='text-white  text-decoration-none' to='/login'>Login</NavLink></Button>
 
                             }
+                            <div onClick={handleMood} className='ms-4'>
+                                {mood?<FaSun/>:<FaMoon/>}
+                            </div>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

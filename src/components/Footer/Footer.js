@@ -64,7 +64,7 @@ function Footer() {
                             <div className="row d-flex justify-content-center">
                                 <div className="col-lg-8">
                                     <p>
-                                        Welcome to EH102. This course is a distance learning equivalent to the EH102 sections offered in traditional classrooms.
+                                        Welcome to coder point. This course is a distance learning equivalent to the coder point sections offered in traditional classrooms.
                                         This means that we will never meet face-to-face. Our course will be conducted via the Internet and our communications
                                         will be limited to e-mail, bulletin board postings, and chatrooms. We will use a program called Blackboard Vista to run the
                                         course. Everything we need — our calendar, bulletin board, chatrooms, e-mail, assignments, grades, etc., will be housed

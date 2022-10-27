@@ -21,8 +21,7 @@ function CoursesCards({ cours }) {
                     <Card.Body className="d-flex justify-content-center align-items-center flex-column text-center">
                         <Card.Text>{detalis.length > 100 ? <span>{detalis.slice(0,100) + '...'}</span>: <span>{detalis}</span>}</Card.Text>
                         <div>
-                            <Button className='me-2' variant="info">Add to Cart</Button>
-                            <Button className='ms-2' variant="outline-info">
+                            <Button variant="outline-info">
                                 <Link className='text-black text-decoration-none ' to={`/details/${id}`}>Details</Link>
                             </Button>
                         </div>

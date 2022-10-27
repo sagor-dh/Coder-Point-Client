@@ -1,44 +1,54 @@
 import React from 'react'
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaUser } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import './Header.css'
 
 function Header() {
     const { user, userLogOut } = useContext(AuthContext)
+    const [logoutToggle, setLogoutToggle] = useState(false)
+
+    const handleLogoutToggle = () => {
+        setLogoutToggle((currentValue) => !currentValue)
+    }
     console.log(user)
     return (
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar expand="lg" className='navbar py-3'>
                 <Container>
                     <Navbar.Brand>
-                        <NavLink>
+                        <NavLink className='d-flex align-items-center text-decoration-none'>
                             <img className='logo' src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/code-512.png" alt="logo" />
-                            <br />
+
                             <span className='logo_text'>Coder Point</span>
                         </NavLink>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto d-flex align-items-center">
-                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-primary me-4' : 'text-decoration-none text-black me-4'} to='/'>Home</NavLink>
+                        <Nav className="ms-auto d-flex align-items-center position-relative">
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/'>Home</NavLink>
 
-                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-primary me-4' : 'text-decoration-none text-black me-4'} to='/courses'>Courses</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/courses'>Courses</NavLink>
 
-                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-primary me-4' : 'text-decoration-none text-black me-4'} to='/fqa'>FQA</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/fqa'>FQA</NavLink>
 
-                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-primary me-4' : 'text-decoration-none text-black me-4'} to='/block'>Block</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'text-decoration-none text-black me-4' : 'text-decoration-none text-white me-4'} to='/block'>Block</NavLink>
                             {
                                 user && user?.uid ? <>
-                                    <FaUser title={user.displayName}/>
-                                    <Button onClick={()=> userLogOut()}>Log Out</Button>
+                                    <img onClick={handleLogoutToggle} title={user.displayName} src={user.photoURL ? user.photoURL : `https://www.kindpng.com/picc/m/146-1468390_transparent-shadow-person-png-missing-profile-picture-icon.png`} alt={user.displayName} className="user_photo" />
 
-                                </> : <Button> <NavLink className='text-white text-decoration-none' to='/login'>Login</NavLink></Button>
+                                    <div className={`position-absolute end-0 top-100 p-2 dropdown_info ${logoutToggle ? 'd-block' : 'd-none'}`}>
+                                        <h5>Setting</h5>
+                                        <hr />
+                                        <h5 onClick={() => userLogOut()} className='logout_Btn'>Log Out</h5>
+                                    </div>
+
+                                </> : <Button> <NavLink className='text-white  text-decoration-none' to='/login'>Login</NavLink></Button>
 
                             }
                         </Nav>

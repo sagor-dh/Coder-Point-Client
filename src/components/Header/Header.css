@@ -1,6 +1,24 @@
+.navbar{
+    background-color: #1666a9;
+}
 .logo{
     width: 40px;
 }
 .logo_text{
     font-weight: bold;
+    color:#fff;
+    font-size: 27px;
+}
+.user_photo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.dropdown_info{
+    min-width: 200px;
+    min-height: 80px;
+    background-color: #e6e6e6 ;
+}
+.logout_Btn{
+    cursor: pointer;
 }

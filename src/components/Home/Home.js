@@ -10,13 +10,13 @@ const Home = () => {
         <div className='banner'>
             <Carousel>
                 <Carousel.Item >
-                    <div className='container banner_bg d-md-flex justify-content-between align-items-center'>
-                        <div className='w-50 text-white '>
+                    <div className='container d-block d-md-flex justify-content-md-between align-items-md-center '>
+                        <div className='w-100 w-md-50 text-white '>
                             <h3>learn coding and keep pace with globalization.</h3>
                             <p>Computer programming is the process of performing a particular computation, usually by designing and building an executable computer program.</p>
                         </div>
 
-                        <div className='w-50 min-vh-100 h-100  d-flex justify-content-center align-items-center'>
+                        <div className='w-100 w-md-50 min-vh-100 h-100  d-flex justify-content-center align-items-center'>
                             <img
                                 className="banner_img"
                                 src={img1}
@@ -26,13 +26,13 @@ const Home = () => {
                     </div>
                 </Carousel.Item>
                 <Carousel.Item >
-                    <div className='container banner_bg d-md-flex justify-content-between align-items-center'>
-                        <div className='w-50 text-white '>
+                    <div className='container d-block d-md-flex justify-content-md-between align-items-md-center '>
+                        <div className='w-100 w-md-50 text-white '>
                             <h3>learn coding and keep pace with globalization.</h3>
                             <p>Computer programming is the process of performing a particular computation, usually by designing and building an executable computer program.</p>
                         </div>
 
-                        <div className='w-50 min-vh-100 h-100  d-flex justify-content-center align-items-center'>
+                        <div className='w-100 w-md-50 min-vh-100 h-100  d-flex justify-content-center align-items-center'>
                             <img
                                 className="banner_img"
                                 src={img2}
@@ -42,13 +42,13 @@ const Home = () => {
                     </div>
                 </Carousel.Item>
                 <Carousel.Item >
-                    <div className='container banner_bg d-md-flex justify-content-between align-items-center'>
-                        <div className='w-50 text-white '>
+                    <div className='container d-block d-md-flex justify-content-md-between align-items-md-center '>
+                        <div className='w-100 w-md-50 text-white '>
                             <h3>learn coding and keep pace with globalization.</h3>
                             <p>Computer programming is the process of performing a particular computation, usually by designing and building an executable computer program.</p>
                         </div>
 
-                        <div className='w-50 min-vh-100 h-100  d-flex justify-content-center align-items-center'>
+                        <div className='w-100 w-md-50 min-vh-100 h-100  d-flex justify-content-center align-items-center'>
                             <img
                                 className="banner_img"
                                 src={img3}

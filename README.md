@@ -2,7 +2,7 @@
 
 Live link: [https://coder-point-a14f2.web.app/home]
 
-### Site functionality
+### Features of this site
 
 * Coder Point is an educational site, students choose to course.
 * Lifetime premium access.
